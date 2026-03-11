@@ -4,6 +4,17 @@ This guide explains how to connect a Unity project with a Flutter project using 
 
 ---
 
+## Environment Versions
+
+This example project was tested with the following versions:
+
+* **Flutter:** 3.41.4
+* **Unity:** 2022.3.62f3
+
+Using these versions is recommended to avoid compatibility issues during setup.
+
+---
+
 ## 1. Create the Unity Library Folder
 
 Inside your Flutter project, create a new folder:
@@ -20,9 +31,9 @@ This folder will contain the Unity Android module exported from the Unity projec
 
 ## 2. Install Unity
 
-Install **Unity 2022.3 LTS**.
+Install **Unity 2022.3.62f3 (LTS)**.
 
-This version is recommended because the example Unity project was built and tested using Unity 2022.3 LTS.
+This version is recommended because the example Unity project was built and tested using Unity 2022.3.62f3.
 
 ---
 
@@ -88,6 +99,6 @@ The Flutter app should now successfully load the Unity module.
 
 ## Notes
 
-* This Flutter project is already configured to work with the latest Flutter version.
+* This Flutter project is already configured to work with **Flutter 3.41.4**.
 * Several common integration issues between Flutter and Unity have already been resolved in this project.
 * If you modify the Unity project later, simply export the project again to update the `unityLibrary` module.
