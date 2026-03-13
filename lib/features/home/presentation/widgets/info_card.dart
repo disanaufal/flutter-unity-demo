@@ -6,7 +6,7 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 180,
+      bottom: 140,
       left: 20,
       right: 20,
       child: GlassContainer(

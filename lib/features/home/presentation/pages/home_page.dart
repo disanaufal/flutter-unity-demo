@@ -4,6 +4,7 @@ import 'package:flutter_unity_demo/features/home/presentation/widgets/bottom_but
 import '../widgets/skeleton_view.dart';
 import '../widgets/top_glass_bar.dart';
 import '../widgets/info_card.dart';
+import '../widgets/menu_overlay.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,12 +28,12 @@ class HomePage extends StatelessWidget {
           children: [
 
             SkeletonView(),
-
             TopGlassBar(),
-
             InfoCard(),
-
             BottomButtons(),
+
+            //* overlay menu
+            MenuOverlay(),
 
           ],
         ),

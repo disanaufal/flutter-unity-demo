@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/widgets/glass_panel.dart';
+import '../../providers/menu_provider.dart';
 
-class TopGlassBar extends StatelessWidget {
+class TopGlassBar extends ConsumerWidget {
   const TopGlassBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Positioned(
       top: 60,
       left: 20,
       right: 20,
       child: GlassPanel(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 16,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-
-            Row(
+          children: [
+            const Row(
               children: [
                 Text(
                   "AR",
@@ -41,10 +39,11 @@ class TopGlassBar extends StatelessWidget {
               ],
             ),
 
-            Icon(
-              Icons.tune,
-              color: Colors.white,
-              size: 26,
+            IconButton(
+              icon: const Icon(Icons.menu, color: Colors.white, size: 40),
+              onPressed: () {
+                ref.read(menuOpenProvider.notifier).state = true;
+              },
             ),
           ],
         ),

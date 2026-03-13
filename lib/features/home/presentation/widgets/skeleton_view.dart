@@ -6,13 +6,13 @@ class SkeletonView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 180,
+      bottom: 40,
       left: 0,
       right: 0,
       child: Center(
         child: Image.asset(
           "assets/images/skeleton.png",
-          height: MediaQuery.of(context).size.height * 0.63,
+          height: MediaQuery.of(context).size.height * 0.90,
           fit: BoxFit.contain,
         ),
       ),

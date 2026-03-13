@@ -33,7 +33,7 @@ class GlassPanel extends StatelessWidget {
               end: Alignment.centerRight,
               colors: [
                 Colors.white.withValues(alpha: 0.15),
-                Colors.white.withValues(alpha: 0.02),
+                Colors.black87.withValues(alpha: 0.02),
               ],
             ),
 

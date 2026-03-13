@@ -8,7 +8,7 @@ class BottomButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 60,
+      bottom: 20,
       left: 20,
       right: 20,
       child: GlassPanel(
