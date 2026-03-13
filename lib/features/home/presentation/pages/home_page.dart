@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
               Color(0xFF1E3A5F),
               Color(0xFF0B1622),
             ],
+            stops: [0.0, 1.0],
           ),
         ),
         child: const Stack(

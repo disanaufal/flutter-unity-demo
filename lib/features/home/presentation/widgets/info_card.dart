@@ -6,18 +6,17 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 210,
+      bottom: 180,
       left: 20,
       right: 20,
       child: GlassContainer(
-        padding: const EdgeInsets.all(26),
+        padding: const EdgeInsets.all(15),
         borderRadius: 28,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text("Paham", style: TextStyle(color: Colors.white, fontSize: 28)),
 
-            SizedBox(height: 4),
 
             Text(
               "Anatomi",
@@ -28,7 +27,6 @@ class InfoCard extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 16),
 
             Text(
               "Arahkan kamera Anda dan temukan dunia anatomi manusia secara interaktif.",
