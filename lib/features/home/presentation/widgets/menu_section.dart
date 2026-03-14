@@ -1,37 +1,39 @@
 import 'package:flutter/material.dart';
-
 class MenuSection extends StatelessWidget {
   final String title;
-  final List<Widget> children;
+  final IconData icon;
+  final VoidCallback onTap;
 
   const MenuSection({
     super.key,
     required this.title,
-    required this.children,
+    required this.icon,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 28),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(14),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        child: Row(
+          children: [
 
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.white70,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 1,
+            Icon(icon, color: Colors.orangeAccent),
+
+            const SizedBox(width: 16),
+
+            Text(
+              title,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
             ),
-          ),
-
-          const SizedBox(height: 12),
-
-          ...children,
-        ],
+          ],
+        ),
       ),
     );
   }

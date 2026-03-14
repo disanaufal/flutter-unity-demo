@@ -4,7 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/menu_provider.dart';
 import '../../../../core/widgets/glass_panel.dart';
 import 'menu_section.dart';
-import 'menu_item.dart';
+import '../../providers/overlay_provider.dart';
+
 
 class MenuOverlay extends ConsumerWidget {
   const MenuOverlay({super.key});
@@ -17,7 +18,6 @@ class MenuOverlay extends ConsumerWidget {
 
     return Stack(
       children: [
-
         /// DARK BACKGROUND
         if (isOpen)
           GestureDetector(
@@ -27,9 +27,7 @@ class MenuOverlay extends ConsumerWidget {
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: 250),
               opacity: isOpen ? 0.4 : 0,
-              child: Container(
-                color: Colors.black,
-              ),
+              child: Container(color: Colors.black),
             ),
           ),
 
@@ -47,95 +45,47 @@ class MenuOverlay extends ConsumerWidget {
 
             child: GlassPanel(
               radius: 0,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 24,
-                vertical: 40,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
 
               child: SafeArea(
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-
+                    children: [
                       SizedBox(height: 20),
 
                       /// INTERACTION GUIDE
                       MenuSection(
                         title: "Panduan Interaksi",
-                        children: [
-
-                          MenuItem(
-                            icon: Icons.touch_app,
-                            title: "Pilih",
-                          ),
-
-                          MenuItem(
-                            icon: Icons.threed_rotation,
-                            title: "Putar & Geser",
-                          ),
-
-                          MenuItem(
-                            icon: Icons.zoom_in,
-                            title: "Perbesar & Perkecil",
-                          ),
-
-                          MenuItem(
-                            icon: Icons.center_focus_strong,
-                            title: "Focus",
-                          ),
-                        ],
+                        icon: Icons.help_outline,
+                        onTap: () {
+                          ref.read(guideOverlayProvider.notifier).state = true;
+                        },
                       ),
 
-                      /// VIEW MODE
                       MenuSection(
                         title: "Mode Tampilan",
-                        children: [
-
-                          MenuItem(
-                            icon: Icons.view_in_ar,
-                            title: "Mode AR",
-                          ),
-
-                          MenuItem(
-                            icon: Icons.view_in_ar_outlined,
-                            title: "Mode 3D",
-                          ),
-
-                          MenuItem(
-                            icon: Icons.restart_alt,
-                            title: "Reset Posisi Model",
-                          ),
-                        ],
+                        icon: Icons.view_in_ar,
+                        onTap: () {
+                          ref.read(viewModeOverlayProvider.notifier).state =
+                              true;
+                        },
                       ),
 
-                      /// APPEARANCE
                       MenuSection(
                         title: "Tampilan",
-                        children: [
-
-                          MenuItem(
-                            icon: Icons.palette,
-                            title: "Ubah Tema",
-                          ),
-                        ],
+                        icon: Icons.palette,
+                        onTap: () {
+                          ref.read(themeOverlayProvider.notifier).state = true;
+                        },
                       ),
 
-                      /// ABOUT
                       MenuSection(
                         title: "Tentang",
-                        children: [
-
-                          MenuItem(
-                            icon: Icons.info_outline,
-                            title: "Tentang Aplikasi",
-                          ),
-
-                          MenuItem(
-                            icon: Icons.verified,
-                            title: "Versi Aplikasi",
-                          ),
-                        ],
+                        icon: Icons.info_outline,
+                        onTap: () {
+                          ref.read(aboutOverlayProvider.notifier).state = true;
+                        },
                       ),
 
                       SizedBox(height: 40),

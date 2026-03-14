@@ -40,7 +40,7 @@ class TopGlassBar extends ConsumerWidget {
             ),
 
             IconButton(
-              icon: const Icon(Icons.menu, color: Colors.white, size: 40),
+              icon: const Icon(Icons.tune, color: Colors.white, size: 40),
               onPressed: () {
                 ref.read(menuOpenProvider.notifier).state = true;
               },
