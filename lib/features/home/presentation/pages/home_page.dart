@@ -8,6 +8,7 @@ import '../widgets/menu_overlay.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/overlay_provider.dart';
 import '../widgets/guide_overlay.dart';
+import '../widgets/quiz_overlay.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -35,6 +36,7 @@ class HomePage extends ConsumerWidget {
             MenuOverlay(),
 
             if (ref.watch(guideOverlayProvider)) const GuideOverlay(),
+            if (ref.watch(quizOverlayProvider)) const QuizOverlay(),
           ],
         ),
       ),

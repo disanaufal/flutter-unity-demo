@@ -5,7 +5,7 @@ import '../../providers/menu_provider.dart';
 import '../../../../core/widgets/glass_panel.dart';
 import 'menu_section.dart';
 import '../../providers/overlay_provider.dart';
-
+import '../../../../core/utills/tips.dart';
 
 class MenuOverlay extends ConsumerWidget {
   const MenuOverlay({super.key});
@@ -15,6 +15,7 @@ class MenuOverlay extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isOpen = ref.watch(menuOpenProvider);
+    final tip = TipsHelper.randomTip();
 
     return Stack(
       children: [
@@ -52,9 +53,67 @@ class MenuOverlay extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 20),
+                      const SizedBox(height: 10),
 
-                      /// INTERACTION GUIDE
+                      /// HEADER
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.orange.withValues(alpha: 0.2),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Icon(
+                              Icons.view_in_ar,
+                              color: Colors.orangeAccent,
+                            ),
+                          ),
+
+                          const SizedBox(width: 12),
+
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "AR Anatomi",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "Menu",
+                                style: TextStyle(
+                                  color: Colors.white54,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 30),
+
+                      /// DIVIDER
+                      Container(
+                        height: 1,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.transparent,
+                              Colors.white.withValues(alpha: 0.25),
+                              Colors.transparent,
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 30),
+
+                      /// MENU ITEMS
                       MenuSection(
                         title: "Panduan Interaksi",
                         icon: Icons.help_outline,
@@ -64,11 +123,10 @@ class MenuOverlay extends ConsumerWidget {
                       ),
 
                       MenuSection(
-                        title: "Mode Tampilan",
-                        icon: Icons.view_in_ar,
+                        title: "Mode Quiz",
+                        icon: Icons.quiz,
                         onTap: () {
-                          ref.read(viewModeOverlayProvider.notifier).state =
-                              true;
+                          ref.read(quizOverlayProvider.notifier).state = true;
                         },
                       ),
 
@@ -88,7 +146,20 @@ class MenuOverlay extends ConsumerWidget {
                         },
                       ),
 
-                      SizedBox(height: 40),
+                      const SizedBox(height: 50),
+
+                      /// TIP CARD
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.05),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Text(
+                          "Tip: $tip",
+                          style: TextStyle(color: Colors.white70, fontSize: 13),
+                        ),
+                      ),
                     ],
                   ),
                 ),
