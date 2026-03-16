@@ -8,22 +8,21 @@ class GuideBackButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ElevatedButton.icon(
-      onPressed: () {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: ElevatedButton(
+        onPressed: () {
+          ref.read(guideOverlayProvider.notifier).state = false;
+        },
 
-        //* hide overlay
-        ref.read(guideOverlayProvider.notifier).state = false;
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.orangeAccent.withValues(alpha: 0.15),
+          foregroundColor: Colors.orangeAccent,
+          elevation: 0,
+          shape: const StadiumBorder(),
+        ),
 
-      },
-
-      icon: const Icon(Icons.arrow_back),
-
-      label: const Text("Kembali"),
-
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white.withValues(alpha: 0.2),
-        foregroundColor: Colors.white,
-        shape: const StadiumBorder(),
+        child: const Text("Tutup"),
       ),
     );
   }
