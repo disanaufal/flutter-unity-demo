@@ -124,7 +124,7 @@ class MenuOverlay extends ConsumerWidget {
 
                       MenuSection(
                         title: "Mode Quiz",
-                        icon: Icons.quiz,
+                        icon: Icons.quiz_outlined,
                         onTap: () {
                           ref.read(quizOverlayProvider.notifier).state = true;
                         },
@@ -132,7 +132,7 @@ class MenuOverlay extends ConsumerWidget {
 
                       MenuSection(
                         title: "Tampilan",
-                        icon: Icons.palette,
+                        icon: Icons.palette_outlined,
                         onTap: () {
                           ref.read(themeOverlayProvider.notifier).state = true;
                         },

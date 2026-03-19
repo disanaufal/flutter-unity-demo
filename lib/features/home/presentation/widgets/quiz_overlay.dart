@@ -104,7 +104,7 @@ class _QuizContent extends StatelessWidget {
             Text(
               "Mode Quiz",
               style: TextStyle(
-                color: Colors.orangeAccent,
+                color: Color.fromARGB(255, 255, 255, 255),
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
@@ -112,7 +112,7 @@ class _QuizContent extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 16),
+        const SizedBox(height: 20),
 
         const Text(
           "Dalam mode ini aplikasi akan menanyakan nama bagian tulang. "
@@ -127,7 +127,11 @@ class _QuizContent extends StatelessWidget {
           children: [
             const Text(
               "Aktifkan Quiz",
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: TextStyle(
+                color: Colors.orangeAccent,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
 
             Switch(

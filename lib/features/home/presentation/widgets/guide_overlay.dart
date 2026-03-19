@@ -12,17 +12,23 @@ class GuideOverlay extends StatelessWidget {
     return GlassOverlay(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
-
-          Text(
-            "Kendali Objek",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.help_outline, color: Colors.orangeAccent),
+              SizedBox(width: 10),
+              Text(
+                "Kendali Objek",
+                style: TextStyle(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
-
+          
           SizedBox(height: 20),
 
           GuideItem(
